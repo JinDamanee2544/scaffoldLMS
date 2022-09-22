@@ -6,6 +6,7 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
     @scoreList = Score.where(student_id: params[:id])
     @maxScore = Score.where(student_id: params[:id]).maximum(:point)
+    @maxSubject = Score.where(student_id: params[:id]).where(point: @maxScore).pluck(:subject)[0]
     @averageScore = Score.where(student_id: params[:id]).average(:point)
   end
 
@@ -21,6 +22,7 @@ class StudentsController < ApplicationController
   # GET /students/new
   def new
     @student = Student.new
+    @student_no = params[:student_no]
   end
 
   # GET /students/1/edit

@@ -1,7 +1,7 @@
 <div>
   <h1>Score of <%= @student.name %></h1>
   <div class='conclude'>
-    <p>Max : <%= @maxScore%></p>
+    <p>Max : <%= @maxSubject%></p>
     <p>Avg : <%= @averageScore%></p>
   </div>
   <% @scoreList.each do |score|%>
@@ -15,5 +15,5 @@
       <%= button_to "Delete", score, method: :delete %>
     </div>
   <% end %>
-  <%= link_to 'Add Score to this student', new_score_path %>
+  <%= link_to 'Add Score to this student', new_score_path(student_id:@student.id) %>
 </div>
