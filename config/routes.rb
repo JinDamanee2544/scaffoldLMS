@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'students/:id/edit_score', to: 'students#edit_score'
+  get 'students/:id/edit_score', to: 'students#edit_score', as: 'my_edit_score'
   resources :scores
   resources :students
 
