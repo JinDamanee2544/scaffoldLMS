@@ -8,6 +8,7 @@ class ScoresController < ApplicationController
 
   # GET /scores/1 or /scores/1.json
   def show
+    session[:previous_page] = scores_path
   end
 
   # GET /scores/new
@@ -17,6 +18,7 @@ class ScoresController < ApplicationController
 
   # GET /scores/1/edit
   def edit
+    @backToLink = '/main/login'
   end
 
   # POST /scores or /scores.json

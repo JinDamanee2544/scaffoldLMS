@@ -8,6 +8,7 @@ class StudentsController < ApplicationController
     @maxScore = Score.where(student_id: params[:id]).maximum(:point)
     @maxSubject = Score.where(student_id: params[:id]).where(point: @maxScore).pluck(:subject)[0]
     @averageScore = Score.where(student_id: params[:id]).average(:point)
+    session[:previous_page] = students_path()
   end
 
   # GET /students or /students.json
@@ -16,7 +17,7 @@ class StudentsController < ApplicationController
   end
 
   # GET /students/1 or /students/1.json
-  def show
+  def show2
   end
 
   # GET /students/new

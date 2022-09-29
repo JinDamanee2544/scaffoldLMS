@@ -10,7 +10,7 @@
       <%= score.grade %>
       <%= score.point %>
       <button>
-        <%= link_to 'update', '/scores/' + score.id.to_s %>
+        <%= link_to 'update', '/scores/' + score.id.to_s + '/edit'%>
       </button>
       <%= button_to "Delete", score, method: :delete %>
     </div>
