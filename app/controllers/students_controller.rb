@@ -1,4 +1,5 @@
 class StudentsController < ApplicationController
+  before_action :must_be_log_in , except: %i[edit_score index]
   before_action :set_student, only: %i[ show edit update destroy ]
 
 

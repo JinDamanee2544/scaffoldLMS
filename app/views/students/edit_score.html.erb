@@ -1,18 +1,20 @@
 <div>
   <h1>Score of <%= @student.name %></h1>
-  <div class='conclude'>
+  <div class='container'>
     <p>Max : <%= @maxSubject%></p>
     <p>Avg : <%= @averageScore%></p>
   </div>
   <% @scoreList.each do |score|%>
-    <div class='d-box'>
+    <div class='d-flex p-2 flex align-item-center gap-2'>
       <%= score.subject %>
       <%= score.grade %>
       <%= score.point %>
-      <button>
-        <%= link_to 'update', '/scores/' + score.id.to_s + '/edit'%>
-      </button>
-      <%= button_to "Delete", score, method: :delete %>
+      <% if(session[:logged_in])%>
+        <button class='btn btn-light'>
+          <%= link_to 'Update', '/scores/' + score.id.to_s + '/edit'%>
+        </button>
+      <%end%>
+      <%= button_to "Delete", score, method: :delete ,class:'btn btn-danger'%>
     </div>
   <% end %>
   <%= link_to 'Add Score to this student', new_score_path(student_id:@student.id) %>
